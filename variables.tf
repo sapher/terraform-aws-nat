@@ -1,6 +1,12 @@
 variable "name" {
   description = "Nat instance name"
-  type = string
+  type        = string
+}
+
+variable "enabled" {
+  description = "Enable module"
+  type        = bool
+  default     = true
 }
 
 variable "instance_type" {

@@ -1,3 +1,8 @@
+provider "aws" {
+  region  = "eu-west-2"
+  profile = "fleurimont-dev"
+}
+
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
@@ -19,6 +24,7 @@ module "vpc" {
 module "nat" {
   source = "../.."
 
+  enabled                 = false
   name                    = "nat"
   instance_type           = "t4g.nano"
   vpc_id                  = module.vpc.vpc_id
